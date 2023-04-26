@@ -1,0 +1,16 @@
+<nav>
+<ul class="topmenu">
+    {% for item in items %}
+        <li class="active" >
+            <a href="?{{ other_querystring }}&{{ menu }}={{ item.id }}" class="btn btn__light">{{ item.title }}</a>
+
+
+        {% if item.child_items %}
+    <ul class="submenu">
+            {% include 'menu/menu.html' with items=item.child_items %}
+    </ul>
+        {% endif %}
+</li>
+    {% endfor %}
+</ul>
+</nav>
